@@ -6,7 +6,7 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import EditTodoModal from './Modal';
 
 const Todos = () => {
-    const todos = useSelector((state) => state.todos);
+    const todos = useSelector((state) => state.todos).slice().reverse();
     const dispatch = useDispatch();
 
     const [showModal, setShowModal] = useState(false);
@@ -33,7 +33,7 @@ const Todos = () => {
     return (
         <div className="container mt-2">
             <div className="row justify-content-center">
-                <div className="col-md-6">
+                <div className="col-md-5">
                     {todos.map((todo) => (
                         <ul className="list-group list-group-flush" key={todo.id}>
                             <li className="list-group-item d-flex justify-content-between align-items-center">
